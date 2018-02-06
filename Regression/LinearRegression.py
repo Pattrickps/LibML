@@ -1,11 +1,15 @@
 import numpy as np
+from utils.verbose_utils import describe_class, describe_function
 
 class LinearRegression:
     def __init__(self):
+        describe_class(self)
+
         self.b = None # Weights numpy array [ Updated during training ]
         self.x = np.zeros((100, 10)) # Default shape of 100 x 10 [ 100 rows and 10 features ]
         self.y = np.zeros((100)) # Default shape of 100 [ 100 labels]
-        print("Initialized x array of shape: {0} and y array of shape: {1}".format(self.x.shape, self.y.shape))
+        describe_function(self, "shape", ["x", "y"])
+        describe_function(self, None, ["b"])
 
     def train(self, x, y):
         """
